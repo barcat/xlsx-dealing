@@ -1,0 +1,26 @@
+{
+  "name": "xlsx-dealing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "..."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barcat/xlsx-dealing.git"
+  },
+  "keywords": [
+    "excel",
+    "xlsx"
+  ],
+  "author": "Przemek Kociecki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/barcat/xlsx-dealing/issues"
+  },
+  "homepage": "https://github.com/barcat/xlsx-dealing#readme",
+  "dependencies": {
+    "xlsx": "^0.8.0"
+  }
+}
