@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/barcat/xlsx-dealing#readme",
   "dependencies": {
+    "os-homedir": "^1.0.1",
     "xlsx": "^0.8.0"
   }
 }
