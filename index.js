@@ -1,21 +1,31 @@
 //jshint esnext:true
-/*jshint camelcase: false */
 (function() {
     'use strict';
-    const XLSX = require('xlsx');
-    const JSON = require('./writeFromJSON');
-    const home = require('os-homedir');
-    const str = require('./stringManipulations');
+    const excel = require('./js/excel');
+    const osHomedir = require('os-homedir');
 
-    const path = home() + '/Desktop/out.xlsx';
-    const file = XLSX.readFile('test.xlsx');
-    const json = XLSX.utils.sheet_to_json(file.Sheets.Content);
+    const workbook = excel.read('test.xlsx');
 
-    const nJson = json.map(x => {
-        x.newName = 'new ' + str.corectName(x.OfferName, x.CategoryName);
-        return x;
-    });
+    if (workbook.Content !== undefined) {
+        //workbook.Content.map(x => console.log(x.OfferName));
 
-    JSON.writeConten(nJson, path);
+        const contentArr = workbook.Content.reduce((p, c) => {
+            let a = [];
+            for (let name in c) {
+                a.push(c[name]);
+            }
+
+            p.push(a);
+            return p;
+        }, []);
+
+        const wb = {};
+        wb.Content = contentArr;
+
+        excel.write(wb, osHomedir() + '/desktop/out.xlsx');
+
+    } else {
+        console.log('brak arkusza Content');
+    }
 
 })();
